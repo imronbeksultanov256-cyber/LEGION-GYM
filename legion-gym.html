@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGION GYM — Территория силы и дисциплины | Бишкек</title>
+<meta name="description" content="LEGION GYM — современный фитнес-клуб в Бишкеке. Профессиональные тренажёры, гибкие абонементы, опытные тренеры. Микрорайон Джал-29, дом 14.">
+<meta property="og:title" content="LEGION GYM — Территория силы">
+<meta property="og:description" content="Современный фитнес-клуб в Бишкеке для тех, кто стремится к лучшей версии себя.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dark: #8B6914;
+  --black: #0A0A0A;
+  --graphite: #1A1A1A;
+  --graphite-mid: #252525;
+  --graphite-light: #333333;
+  --white: #F5F0E8;
+  --marble: #E8E0D0;
+  --text-muted: #888;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+/* ─── HEADER ─── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+}
+header.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(201,168,76,0.2);
+}
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+.logo-wrap img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+}
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  line-height: 1.1;
+}
+.logo-text span { color: var(--gold); }
+
+nav { display: flex; gap: 2rem; }
+nav a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s, color 0.2s;
+}
+nav a:hover { opacity: 1; color: var(--gold); }
+
+.header-cta {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2px;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  transition: background 0.2s, transform 0.2s !important;
+}
+.header-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+}
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+/* ─── HERO ─── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 75% 40%, rgba(201,168,76,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 20% 70%, rgba(201,168,76,0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #0A0A0A 0%, #111 40%, #1A1510 100%);
+}
+
+.marble-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 400px 400px;
+}
+
+.greek-columns {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 55%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.column-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+}
+
+.athlete-silhouette {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  height: 90%;
+  opacity: 0.12;
+  filter: sepia(1) saturate(0.3) brightness(1.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  padding: 120px 2rem 80px 8%;
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-title .gold { color: var(--gold); }
+
+.hero-tagline {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  letter-spacing: 0.2em;
+  color: var(--marble);
+  opacity: 0;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s 0.7s forwards;
+  transform: translateY(20px);
+}
+
+.divider-gold {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+  transform: translateY(10px);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(245,240,232,0.7);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+  transform: translateY(20px);
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.1s forwards;
+  transform: translateY(20px);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.9rem 2rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  padding: 0.9rem 2rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(245,240,232,0.3);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.hero-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.3s forwards;
+  transform: translateY(20px);
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: rgba(245,240,232,0.7);
+  font-weight: 500;
+}
+.perk::before {
+  content: '✓';
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ─── STATS STRIP ─── */
+.stats-strip {
+  background: var(--graphite);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 2.5rem 0;
+}
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+/* ─── SECTION SHARED ─── */
+.section {
+  padding: 6rem 2rem;
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.section-title span { color: var(--gold); }
+
+/* ─── ABOUT ─── */
+#about {
+  background: linear-gradient(180deg, var(--black) 0%, var(--graphite) 100%);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-text p {
+  color: rgba(245,240,232,0.72);
+  line-height: 1.85;
+  font-size: 0.97rem;
+  margin-bottom: 1.5rem;
+}
+.about-quote {
+  border-left: 3px solid var(--gold);
+  padding-left: 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--marble);
+  line-height: 1.6;
+  margin: 2rem 0;
+  font-style: italic;
+}
+.about-visual {
+  position: relative;
+  height: 420px;
+}
+.about-card {
+  position: absolute;
+  background: var(--graphite-mid);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 4px;
+  padding: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.1);
+}
+.about-card:nth-child(1) { top: 0; left: 0; right: 30%; }
+.about-card:nth-child(2) { bottom: 0; left: 25%; right: 0; }
+.about-card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.about-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.about-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ─── ADVANTAGES ─── */
+#advantages { background: var(--graphite); }
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.adv-card {
+  background: var(--graphite-mid);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 4px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.adv-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.adv-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201,168,76,0.35);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+.adv-card:hover::before { transform: scaleX(1); }
+.adv-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.adv-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+.adv-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+
+/* ─── PRICING ─── */
+#pricing {
+  background: linear-gradient(180deg, var(--graphite) 0%, var(--black) 100%);
+}
+.pricing-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.tab-btn {
+  padding: 0.6rem 1.4rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.25);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.tab-btn.active, .tab-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.price-card {
+  background: var(--graphite-mid);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.price-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border-color: rgba(201,168,76,0.4);
+}
+.price-card.featured {
+  border-color: var(--gold);
+  background: linear-gradient(145deg, var(--graphite-mid), #1f1a0e);
+}
+.price-card.featured::after {
+  content: 'ПОПУЛЯРНЫЙ';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 0.3rem 1rem;
+  border-radius: 2px;
+}
+.price-type {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+.price-hours {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+.price-amount {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.price-currency {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.price-period {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  margin-bottom: 1.75rem;
+}
+.price-cta {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+}
+.price-cta:hover, .price-card.featured .price-cta {
+  background: var(--gold);
+  color: var(--black);
+}
+.price-card.featured .price-cta:hover { background: var(--gold-light); }
+
+.installment-badge {
+  background: linear-gradient(135deg, var(--graphite-light), var(--graphite-mid));
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.badge-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+.badge-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.badge-text { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ─── BONUS ─── */
+#bonus { background: var(--black); }
+.bonus-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.bonus-badge {
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+}
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.bonus-card {
+  background: linear-gradient(145deg, #1A1500, #120F00);
+  border: 1px solid var(--gold-dark);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.bonus-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at top right, rgba(201,168,76,0.08), transparent 60%);
+  pointer-events: none;
+}
+.bonus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(201,168,76,0.15);
+}
+.bonus-card-type {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.bonus-card-hours {
+  font-size: 0.78rem;
+  color: rgba(201,168,76,0.5);
+  margin-bottom: 1.5rem;
+}
+.bonus-gifts {
+  margin-bottom: 1.5rem;
+}
+.bonus-gift {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--marble);
+  padding: 0.4rem 0;
+}
+.bonus-gift::before {
+  content: '✓';
+  color: var(--gold);
+  font-weight: 700;
+}
+.bonus-price {
+  font-family: 'Cinzel', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.bonus-price span { font-size: 1rem; font-weight: 400; color: rgba(201,168,76,0.6); }
+.bonus-cta {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  text-align: center;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.bonus-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+/* ─── GALLERY ─── */
+#gallery { background: var(--graphite); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.gallery-item {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: var(--graphite-mid);
+  border: 1px solid rgba(201,168,76,0.1);
+}
+.gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: auto; min-height: 280px; }
+.gallery-item:nth-child(4) { grid-column: span 2; aspect-ratio: auto; min-height: 220px; }
+.gallery-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--graphite-mid), var(--graphite-light));
+  transition: transform 0.4s;
+}
+.gallery-item:hover .gallery-placeholder { transform: scale(1.04); }
+.gallery-icon { font-size: 2.5rem; margin-bottom: 0.75rem; opacity: 0.5; }
+.gallery-caption {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  opacity: 0.7;
+}
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+/* ─── CONTACTS ─── */
+#contacts {
+  background: linear-gradient(180deg, var(--black) 0%, var(--graphite) 100%);
+}
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-item {
+  margin-bottom: 2rem;
+}
+.contact-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.contact-value {
+  font-size: 1rem;
+  color: var(--white);
+  line-height: 1.6;
+}
+.contact-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 2px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.contact-btn:hover { transform: translateX(4px); }
+.btn-phone {
+  background: var(--gold);
+  color: var(--black);
+}
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+.btn-map {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(245,240,232,0.2);
+}
+.btn-map:hover { border-color: var(--gold); color: var(--gold); }
+
+.map-wrap {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.2);
+  height: 380px;
+  background: var(--graphite-mid);
+  position: relative;
+}
+.map-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.map-placeholder-icon { font-size: 3rem; opacity: 0.4; }
+.map-placeholder-text { font-size: 0.82rem; color: var(--text-muted); text-align: center; line-height: 1.6; }
+.map-open-link {
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.65rem 1.5rem;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: background 0.2s;
+}
+.map-open-link:hover { background: var(--gold-light); }
+
+/* ─── BOOKING FORM ─── */
+#booking { background: var(--graphite); }
+.form-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-wrap .section-label,
+.form-wrap .section-title { text-align: center; }
+.form-wrap .divider-gold { margin: 0 auto 2rem; }
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+.form-group { position: relative; }
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: var(--graphite-light);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 2px;
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input::placeholder { color: var(--text-muted); }
+.form-group input:focus,
+.form-group select:focus { border-color: var(--gold); }
+.form-group select option { background: var(--graphite); }
+.form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: 2px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.form-submit:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--graphite-mid);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 1.2rem 1.8rem;
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s;
+  max-width: 340px;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast-title {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+.toast-text { font-size: 0.82rem; color: var(--text-muted); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding: 3rem 2rem 2rem;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.footer-brand .logo-wrap { margin-bottom: 1rem; }
+.footer-slogan {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+.footer-col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.footer-col p, .footer-col a {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.4rem;
+  transition: color 0.2s;
+  line-height: 1.6;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-socials { display: flex; gap: 0.75rem; margin-top: 1rem; }
+.social-link {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.social-link:hover { border-color: var(--gold); color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─── MOBILE NAV ─── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0; right: 0;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(16px);
+  padding: 1.5rem 2rem;
+  z-index: 999;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--gold); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { display: none; }
+  .burger { display: flex; }
+  .header-cta-wrap { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-visual { height: 300px; }
+  .adv-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .bonus-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .gallery-item:nth-child(4) { grid-column: 1; }
+  .contacts-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .hero-content { padding: 100px 1.5rem 60px; }
+  .adv-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1) { grid-column: 1; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .section { padding: 4rem 1.5rem; }
+  .pricing-tabs { gap: 0.4rem; }
+  .tab-btn { font-size: 0.7rem; padding: 0.5rem 0.9rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+
+/* Gold shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--gold) 25%, var(--gold-light) 50%, var(--gold) 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <a href="#hero" class="logo-wrap">
+    <img src="data:image/jpeg;base64,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" alt="Legion Gym Logo">
+    <div class="logo-text">LEGION<br><span>GYM</span></div>
+  </a>
+  <nav>
+    <a href="#about">О клубе</a>
+    <a href="#advantages">Преимущества</a>
+    <a href="#pricing">Абонементы</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <div class="header-cta-wrap">
+    <a href="#booking" class="header-cta" style="font-family:'Raleway',sans-serif;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:0.55rem 1.4rem;background:var(--gold);color:var(--black);border-radius:2px;font-weight:700;transition:background 0.2s,transform 0.2s;">Записаться</a>
+  </div>
+  <button class="burger" id="burgerBtn" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#about">О клубе</a>
+  <a href="#advantages">Преимущества</a>
+  <a href="#pricing">Абонементы</a>
+  <a href="#gallery">Галерея</a>
+  <a href="#contacts">Контакты</a>
+  <a href="#booking" style="color:var(--gold)!important;">Записаться →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="marble-texture"></div>
+
+  <!-- Decorative columns SVG -->
+  <div class="greek-columns">
+    <svg class="column-svg" viewBox="0 0 600 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax meet">
+      <!-- Column 1 -->
+      <rect x="80" y="50" width="60" height="20" fill="#C9A84C"/>
+      <rect x="75" y="70" width="70" height="10" fill="#C9A84C"/>
+      <rect x="90" y="80" width="40" height="750" fill="#C9A84C"/>
+      <rect x="75" y="830" width="70" height="10" fill="#C9A84C"/>
+      <rect x="60" y="840" width="100" height="20" fill="#C9A84C"/>
+      <!-- Column 2 -->
+      <rect x="260" y="50" width="60" height="20" fill="#C9A84C"/>
+      <rect x="255" y="70" width="70" height="10" fill="#C9A84C"/>
+      <rect x="270" y="80" width="40" height="750" fill="#C9A84C"/>
+      <rect x="255" y="830" width="70" height="10" fill="#C9A84C"/>
+      <rect x="240" y="840" width="100" height="20" fill="#C9A84C"/>
+      <!-- Column 3 -->
+      <rect x="440" y="50" width="60" height="20" fill="#C9A84C"/>
+      <rect x="435" y="70" width="70" height="10" fill="#C9A84C"/>
+      <rect x="450" y="80" width="40" height="750" fill="#C9A84C"/>
+      <rect x="435" y="830" width="70" height="10" fill="#C9A84C"/>
+      <rect x="420" y="840" width="100" height="20" fill="#C9A84C"/>
+      <!-- Entablature -->
+      <rect x="60" y="30" width="480" height="30" fill="#C9A84C"/>
+      <rect x="40" y="10" width="520" height="20" fill="#C9A84C"/>
+      <!-- Flute lines on columns -->
+      <line x1="95" y1="80" x2="95" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="102" y1="80" x2="102" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="109" y1="80" x2="109" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="116" y1="80" x2="116" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="275" y1="80" x2="275" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="282" y1="80" x2="282" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="289" y1="80" x2="289" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="296" y1="80" x2="296" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="455" y1="80" x2="455" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="462" y1="80" x2="462" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="469" y1="80" x2="469" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+      <line x1="476" y1="80" x2="476" y2="830" stroke="#0A0A0A" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Бишкек · Микрорайон Джал</p>
+    <h1 class="hero-title">
+      LEGION<br><span class="gold shimmer">GYM</span>
+    </h1>
+    <p class="hero-tagline">Территория силы и дисциплины</p>
+    <div class="divider-gold" style="opacity:0;animation:fadeUp 0.8s 0.85s forwards;transform:translateY(10px);"></div>
+    <p class="hero-sub">Современный фитнес-клуб в Бишкеке для тех, кто стремится к лучшей версии себя.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">Записаться на тренировку</a>
+      <a href="#pricing" class="btn-outline">Узнать стоимость</a>
+    </div>
+    <div class="hero-perks">
+      <div class="perk">Современное оборудование</div>
+      <div class="perk">Просторный тренажёрный зал</div>
+      <div class="perk">Гибкие абонементы</div>
+      <div class="perk">Удобное расположение</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num" data-count="500">0</div>
+      <div class="stat-label">Членов клуба</div>
+    </div>
+    <div>
+      <div class="stat-num" data-count="3">0</div>
+      <div class="stat-label">Тренировочные зоны</div>
+    </div>
+    <div>
+      <div class="stat-num" data-count="7">0</div>
+      <div class="stat-label">Дней в неделю</div>
+    </div>
+    <div>
+      <div class="stat-num" data-count="5">0</div>
+      <div class="stat-label">Лет опыта</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="section-label">О клубе</p>
+        <h2 class="section-title">Философия<br><span>древних атлетов</span></h2>
+        <div class="divider-gold" style="opacity:1;animation:none;margin-bottom:1.5rem;"></div>
+        <p>LEGION GYM — это место, где современные технологии фитнеса сочетаются с философией древних атлетов. Здесь рождаются сила, выносливость и дисциплина.</p>
+        <div class="about-quote">
+          «Тело — это инструмент души. Закали его, и ты познаешь себя.»
+        </div>
+        <p>Независимо от уровня подготовки, каждый найдёт комфортную атмосферу для достижения своих целей. Присоединяйтесь к нашему легиону.</p>
+        <a href="#booking" class="btn-primary" style="margin-top:2rem;display:inline-block;">Начать сейчас</a>
+      </div>
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="about-card">
+          <div class="about-card-icon">🏛️</div>
+          <h3>Дух легиона</h3>
+          <p>Атмосфера дисциплины и взаимного уважения. Каждый здесь — часть чего-то большего.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">⚡</div>
+          <h3>Современный подход</h3>
+          <p>Профессиональное оборудование мировых брендов и грамотно выстроенные тренировочные зоны.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section id="advantages" class="section">
+  <div class="section-inner">
+    <p class="section-label reveal">Почему мы</p>
+    <h2 class="section-title reveal">Наши <span>преимущества</span></h2>
+    <div class="adv-grid">
+      <div class="adv-card reveal reveal-delay-1">
+        <div class="adv-icon">🏋️</div>
+        <h3>Профессиональные тренажёры</h3>
+        <p>Современное оборудование от ведущих мировых производителей для эффективных тренировок.</p>
+      </div>
+      <div class="adv-card reveal reveal-delay-2">
+        <div class="adv-icon">🏟️</div>
+        <h3>Просторные тренировочные зоны</h3>
+        <p>Отдельные зоны для силовых тренировок, кардио и функционального тренинга.</p>
+      </div>
+      <div class="adv-card reveal reveal-delay-3">
+        <div class="adv-icon">🕐</div>
+        <h3>Удобный график работы</h3>
+        <p>Открыты с 08:00 до 22:45. В воскресенье с 12:00. Работаем для вашего удобства.</p>
+      </div>
+      <div class="adv-card reveal reveal-delay-1">
+        <div class="adv-icon">💎</div>
+        <h3>Доступные абонементы</h3>
+        <p>Гибкая линейка тарифов на любой бюджет. Доступна рассрочка без переплат.</p>
+      </div>
+      <div class="adv-card reveal reveal-delay-2">
+        <div class="adv-icon">🤝</div>
+        <h3>Дружелюбная атмосфера</h3>
+        <p>Сплочённое сообщество единомышленников. Здесь помогут и поддержат на каждом этапе.</p>
+      </div>
+      <div class="adv-card reveal reveal-delay-3">
+        <div class="adv-icon">🚿</div>
+        <h3>Комфортные раздевалки</h3>
+        <p>Просторные, чистые раздевалки с душевыми кабинами и всем необходимым.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="section-inner">
+    <p class="section-label reveal">Стоимость</p>
+    <h2 class="section-title reveal">Выберите <span>абонемент</span></h2>
+
+    <div class="pricing-tabs reveal">
+      <button class="tab-btn active" data-tab="monthly">Разовые/Месячные</button>
+      <button class="tab-btn" data-tab="three">3 месяца</button>
+      <button class="tab-btn" data-tab="unlimited">Безлимит</button>
+      <button class="tab-btn" data-tab="yearly">Годовые</button>
+    </div>
+
+    <!-- Monthly -->
+    <div class="pricing-grid" id="tab-monthly">
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-type">Утренний</div>
+        <div class="price-hours">08:00 – 12:00</div>
+        <div class="price-amount">1 500 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ месяц</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+      <div class="price-card featured reveal reveal-delay-2">
+        <div class="price-type">Дневной</div>
+        <div class="price-hours">08:00 – 17:00</div>
+        <div class="price-amount">2 000 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ месяц</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+      <div class="price-card reveal reveal-delay-3">
+        <div class="price-type">Вечерний</div>
+        <div class="price-hours">08:00 – 22:45</div>
+        <div class="price-amount">2 500 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ месяц</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+    </div>
+
+    <!-- 3 months -->
+    <div class="pricing-grid" id="tab-three" style="display:none">
+      <div class="price-card reveal">
+        <div class="price-type">Утренний</div>
+        <div class="price-hours">08:00 – 12:00</div>
+        <div class="price-amount">2 900 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ 3 месяца</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-type">Дневной</div>
+        <div class="price-hours">08:00 – 17:00</div>
+        <div class="price-amount">4 000 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ 3 месяца</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-type">Вечерний</div>
+        <div class="price-hours">08:00 – 22:45</div>
+        <div class="price-amount">5 500 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ 3 месяца</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+    </div>
+
+    <!-- Unlimited -->
+    <div class="pricing-grid" id="tab-unlimited" style="display:none">
+      <div class="price-card reveal">
+        <div class="price-type">Утренний</div>
+        <div class="price-hours">08:00 – 12:00</div>
+        <div class="price-amount">2 000 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ месяц · безлимит</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-type">Дневной</div>
+        <div class="price-hours">08:00 – 17:00</div>
+        <div class="price-amount">3 000 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ месяц · безлимит</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-type">Вечерний</div>
+        <div class="price-hours">08:00 – 22:45</div>
+        <div class="price-amount">3 500 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ месяц · безлимит</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+    </div>
+
+    <!-- Yearly -->
+    <div class="pricing-grid" id="tab-yearly" style="display:none;grid-template-columns:repeat(2,1fr);max-width:700px;">
+      <div class="price-card reveal">
+        <div class="price-type">12 посещений / мес.</div>
+        <div class="price-hours">Годовой абонемент</div>
+        <div class="price-amount">16 000 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ год</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-type">Безлимитный</div>
+        <div class="price-hours">Годовой абонемент</div>
+        <div class="price-amount">20 000 <span class="price-currency">сом</span></div>
+        <div class="price-period">/ год</div>
+        <a href="#booking" class="price-cta">Выбрать</a>
+      </div>
+    </div>
+
+    <div class="installment-badge reveal">
+      <div class="badge-icon">💳</div>
+      <div>
+        <div class="badge-title">Доступна рассрочка</div>
+        <div class="badge-text">Первоначальный взнос 30% · Оставшаяся сумма выплачивается в течение 2 месяцев без переплат.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section id="bonus" class="section">
+  <div class="section-inner">
+    <div class="bonus-header reveal">
+      <div>
+        <p class="section-label" style="margin-bottom:0.5rem;">Специальное предложение</p>
+        <h2 class="section-title" style="margin-bottom:0;">Бонусные <span>абонементы</span></h2>
+      </div>
+      <div class="bonus-badge">🎁 В ПОДАРОК</div>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card reveal reveal-delay-1">
+        <div class="bonus-card-type">Утренний</div>
+        <div class="bonus-card-hours">08:00 – 12:00</div>
+        <div class="bonus-gifts">
+          <div class="bonus-gift">Гейнер</div>
+          <div class="bonus-gift">Креатин</div>
+        </div>
+        <div class="bonus-price">2 700 <span>сом</span></div>
+        <a href="#booking" class="bonus-cta">Выбрать бонусный</a>
+      </div>
+      <div class="bonus-card reveal reveal-delay-2">
+        <div class="bonus-card-type">Дневной</div>
+        <div class="bonus-card-hours">08:00 – 17:00</div>
+        <div class="bonus-gifts">
+          <div class="bonus-gift">Гейнер</div>
+          <div class="bonus-gift">Креатин</div>
+        </div>
+        <div class="bonus-price">3 000 <span>сом</span></div>
+        <a href="#booking" class="bonus-cta">Выбрать бонусный</a>
+      </div>
+      <div class="bonus-card reveal reveal-delay-3">
+        <div class="bonus-card-type">Вечерний</div>
+        <div class="bonus-card-hours">08:00 – 22:45</div>
+        <div class="bonus-gifts">
+          <div class="bonus-gift">Гейнер</div>
+          <div class="bonus-gift">Креатин</div>
+        </div>
+        <div class="bonus-price">3 500 <span>сом</span></div>
+        <a href="#booking" class="bonus-cta">Выбрать бонусный</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <div class="section-inner">
+    <p class="section-label reveal">Пространство</p>
+    <h2 class="section-title reveal">Галерея <span>клуба</span></h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-icon">🏋️</div>
+          <div class="gallery-caption">Силовая зона</div>
+        </div>
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Тренажёрный зал</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-icon">🏃</div>
+          <div class="gallery-caption">Кардио зона</div>
+        </div>
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Беговые дорожки</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-icon">💪</div>
+          <div class="gallery-caption">Свободные веса</div>
+        </div>
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Штанги и гантели</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-icon">⚡</div>
+          <div class="gallery-caption">Функциональная зона</div>
+        </div>
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Кроссфит зона</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-icon">🚿</div>
+          <div class="gallery-caption">Раздевалки</div>
+        </div>
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Комфортные условия</div></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-icon">🏛️</div>
+          <div class="gallery-caption">Атмосфера</div>
+        </div>
+        <div class="gallery-overlay"><div class="gallery-overlay-text">Дух победы</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" class="section">
+  <div class="section-inner">
+    <p class="section-label reveal">Мы здесь</p>
+    <h2 class="section-title reveal">Контакты</h2>
+    <div class="contacts-grid">
+      <div class="reveal">
+        <div class="contact-item">
+          <div class="contact-label">Адрес</div>
+          <div class="contact-value">г. Бишкек<br>Микрорайон Джал-29, дом 14</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Телефон</div>
+          <div class="contact-value">+996 550 978 991</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Время работы</div>
+          <div class="contact-value">Понедельник – Суббота: 08:00 – 22:00<br>Воскресенье: 12:00 – 22:00</div>
+        </div>
+        <div class="contact-btns">
+          <a href="tel:+996550978991" class="contact-btn btn-phone">📞 Позвонить</a>
+          <a href="https://wa.me/996550978991" target="_blank" class="contact-btn btn-whatsapp">💬 WhatsApp</a>
+          <a href="https://maps.google.com/?q=Бишкек+Джал+29+дом+14" target="_blank" class="contact-btn btn-map">🗺️ Построить маршрут</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="map-wrap">
+          <div class="map-placeholder">
+            <div class="map-placeholder-icon">📍</div>
+            <div class="map-placeholder-text">
+              г. Бишкек<br>
+              Мкр. Джал-29, дом 14<br>
+              <br>
+              Нажмите, чтобы открыть карту
+            </div>
+            <a href="https://maps.google.com/?q=Бишкек+Джал+29+дом+14" target="_blank" class="map-open-link">Открыть в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section id="booking" class="section">
+  <div class="section-inner">
+    <div class="form-wrap">
+      <p class="section-label">Запись</p>
+      <h2 class="section-title">Начните <span>прямо сейчас</span></h2>
+      <div class="divider-gold" style="opacity:1;animation:none;margin:0 auto 1rem;"></div>
+      <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin-bottom:0.5rem;">Оставьте заявку и мы свяжемся с вами в течение 15 минут.</p>
+      <form class="booking-form" id="bookingForm">
+        <div class="form-group">
+          <input type="text" placeholder="Ваше имя" required id="nameInput">
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Номер телефона" required id="phoneInput">
+        </div>
+        <div class="form-group">
+          <select id="typeInput" required>
+            <option value="" disabled selected>Тип абонемента</option>
+            <option>Утренний (08:00 – 12:00) — 1 500 сом</option>
+            <option>Дневной (08:00 – 17:00) — 2 000 сом</option>
+            <option>Вечерний (08:00 – 22:45) — 2 500 сом</option>
+            <option>3 месяца · Утренний — 2 900 сом</option>
+            <option>3 месяца · Дневной — 4 000 сом</option>
+            <option>3 месяца · Вечерний — 5 500 сом</option>
+            <option>Безлимит · Утренний — 2 000 сом</option>
+            <option>Безлимит · Дневной — 3 000 сом</option>
+            <option>Безлимит · Вечерний — 3 500 сом</option>
+            <option>Бонусный · Утренний — 2 700 сом</option>
+            <option>Бонусный · Дневной — 3 000 сом</option>
+            <option>Бонусный · Вечерний — 3 500 сом</option>
+            <option>Годовой · 12 посещений — 16 000 сом</option>
+            <option>Годовой · Безлимит — 20 000 сом</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Записаться сейчас →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#hero" class="logo-wrap" style="display:inline-flex;">
+        <img src="data:image/jpeg;base64,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" alt="Legion Gym" style="width:44px;height:44px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;">
+        <div class="logo-text">LEGION<br><span>GYM</span></div>
+      </a>
+      <p class="footer-slogan" style="margin-top:1rem;">LEGION GYM — место, где рождается сила.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link" aria-label="Instagram">📸</a>
+        <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+        <a href="https://wa.me/996550978991" class="social-link" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <a href="#about">О клубе</a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#pricing">Абонементы</a>
+      <a href="#bonus">Бонусы</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <p>📍 Мкр. Джал-29, дом 14<br>г. Бишкек</p>
+      <a href="tel:+996550978991">📞 +996 550 978 991</a>
+      <a href="https://wa.me/996550978991">💬 WhatsApp</a>
+      <p style="margin-top:0.75rem;">Пн–Сб: 08:00 – 22:00<br>Вс: 12:00 – 22:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom" style="max-width:1200px;margin:0 auto;">
+    <span>© 2025 LEGION GYM. Все права защищены.</span>
+    <span style="color:rgba(201,168,76,0.3);">Бишкек · Сила · Дисциплина · Величие</span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-title">✓ Заявка принята!</div>
+  <div class="toast-text">Мы свяжемся с вами в течение 15 минут.</div>
+</div>
+
+<script>
+// ─── Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── Burger
+const burger = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+burger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+
+// ─── Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ─── Counter animation
+const counters = document.querySelectorAll('.stat-num[data-count]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.count);
+      const dur = 1800;
+      const step = Math.ceil(target / (dur / 16));
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current + (target >= 100 ? '+' : '');
+        if (current >= target) clearInterval(timer);
+      }, 16);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// ─── Pricing tabs
+const tabs = document.querySelectorAll('.tab-btn');
+const tabPanels = {
+  monthly: document.getElementById('tab-monthly'),
+  three: document.getElementById('tab-three'),
+  unlimited: document.getElementById('tab-unlimited'),
+  yearly: document.getElementById('tab-yearly'),
+};
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    Object.values(tabPanels).forEach(p => p.style.display = 'none');
+    const panel = tabPanels[btn.dataset.tab];
+    if (panel) {
+      panel.style.display = btn.dataset.tab === 'yearly' ? 'grid' : 'grid';
+      if (btn.dataset.tab === 'yearly') {
+        panel.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        panel.style.maxWidth = '700px';
+      } else {
+        panel.style.gridTemplateColumns = '';
+        panel.style.maxWidth = '';
+      }
+    }
+  });
+});
+
+// ─── Booking form
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  this.reset();
+  setTimeout(() => toast.classList.remove('show'), 4000);
+});
+
+// ─── Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const id = this.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ─── Parallax on hero bg
+window.addEventListener('scroll', () => {
+  const hero = document.getElementById('hero');
+  const scrolled = window.scrollY;
+  if (scrolled < window.innerHeight) {
+    hero.style.backgroundPositionY = (scrolled * 0.3) + 'px';
+  }
+});
+</script>
+</body>
+</html>
